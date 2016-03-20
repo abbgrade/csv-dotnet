@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -8,34 +7,35 @@ namespace CSV
 {
     public class CsvReader : IDisposable
     {
-        StreamReader Reader;
-        char RowDelimeter;
-        char ColumnDelimeter;
-        int SkipRowCount;
+        private StreamReader Reader;
+        private char RowDelimeter;
+        private char ColumnDelimeter;
+        private int HeaderRowCount;
 
         public string[] Header { get; private set; }
 
-        public IEnumerable<string[]> Rows
-        {
-            get
-            {
-                Reader.BaseStream.Position = 0;
-                return Reader.ReadRows(RowDelimeter, ColumnDelimeter, SkipRowCount);
-            }
-        }
-        public CsvReader(string path, Encoding encoding, char rowDelimeter, char columnDelimeter, int skipRowCount)
+        public CsvReader(string path, Encoding encoding, char rowDelimeter, char columnDelimeter, int headerRowCount)
         {
             RowDelimeter = rowDelimeter;
             ColumnDelimeter = columnDelimeter;
-            SkipRowCount = skipRowCount;
+            HeaderRowCount = headerRowCount;
 
             Reader = new StreamReader(path, encoding);
-            if (skipRowCount > 0)
+            if (headerRowCount > 0)
+            {
                 Header = Reader.ReadLine(rowDelimeter).Split(columnDelimeter);
+                HeaderRowCount--;
+            }
         }
+
         public void Dispose()
         {
             Reader.Close();
+        }
+
+        public IEnumerable<string[]> GetRows()
+        {
+            return Reader.ReadRows(RowDelimeter, ColumnDelimeter, HeaderRowCount);
         }
     }
 
@@ -55,6 +55,7 @@ namespace CSV
             }
             return null;
         }
+
         public static IEnumerable<string> ReadLines(this TextReader reader, char delimeter)
         {
             List<char> chars = new List<char>();
@@ -77,9 +78,13 @@ namespace CSV
         {
             foreach (var line in reader.ReadLines(rowDelimeter))
             {
-                if (skipRowCount-- > 0) continue;
+                if (skipRowCount > 0)
+                {
+                    skipRowCount--;
+                    continue;
+                }
+
                 yield return line.Split(columnDelimeter);
-                continue;
             }
         }
     }
