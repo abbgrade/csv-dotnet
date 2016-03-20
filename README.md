@@ -1,9 +1,15 @@
 # csv-dotnet
 A simple .NET Library for CSV-File access.
+It is inspired by the Python csv module.
 
-# Usage
+## Changelog 
 
-## StreamReader Extension Example
+- [x] CSV Reader
+- [ ] CSV Writer
+
+## Usage
+
+### StreamReader Extension Example
 
 Import the CSV library to extend the StreamReader class.
 
@@ -19,7 +25,7 @@ Use the StreamReader.ReadRows enumerator to get the rows.
 		}
 	}
 
-## CsvReader Example
+### CsvReader Example
 
 Import the CSV library to get access to the CsvReader class.
 
