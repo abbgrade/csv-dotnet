@@ -1,4 +1,5 @@
 # csv-dotnet
+[![Build Status](https://travis-ci.org/abbgrade/blob_types.svg?branch=master)](https://travis-ci.org/abbgrade/blob_types)
 A simple .NET Library for CSV-File access.
 It is inspired by the Python csv module.
 
