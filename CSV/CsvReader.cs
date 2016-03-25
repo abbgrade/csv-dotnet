@@ -47,7 +47,7 @@ namespace CSV
             Reader.Close();
         }
 
-        public IEnumerable<string[]> GetRows()
+        public IEnumerable<string[]> ReadRows()
         {
             return Reader.ReadRows(RowDelimeter, ColumnDelimeter, HeaderRowCount);
         }
