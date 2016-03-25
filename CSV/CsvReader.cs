@@ -28,6 +28,20 @@ namespace CSV
             }
         }
 
+        public CsvReader(StreamReader reader, char rowDelimeter, char columnDelimeter, int headerRowCount)
+        {
+            Reader = reader;
+            RowDelimeter = rowDelimeter;
+            ColumnDelimeter = columnDelimeter;
+            HeaderRowCount = headerRowCount;
+            
+            if (headerRowCount > 0)
+            {
+                Header = Reader.ReadLine(rowDelimeter).Split(columnDelimeter);
+                HeaderRowCount--;
+            }
+        }
+
         public void Dispose()
         {
             Reader.Close();
