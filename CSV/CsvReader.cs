@@ -34,11 +34,16 @@ namespace CSV
             RowDelimeter = rowDelimeter;
             ColumnDelimeter = columnDelimeter;
             HeaderRowCount = headerRowCount;
-            
+
             if (headerRowCount > 0)
             {
-                Header = Reader.ReadLine(rowDelimeter).Split(columnDelimeter);
-                HeaderRowCount--;
+                var headerLine = Reader.ReadLine(rowDelimeter);
+                if (headerLine == null)
+                    Header = new string[0] { };
+                else {
+                    Header = headerLine.Split(columnDelimeter);
+                    HeaderRowCount--;
+                }
             }
         }
 
