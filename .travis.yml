@@ -1,7 +1,6 @@
 language: csharp
 solution: CSV.sln
-script:
-  - dotnet restore
+
 include:
   - dotnet: 2.1.104
     mono: none
