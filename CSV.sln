@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSV", "CSV\CSV.csproj", "{5374926A-33D6-4A8F-8E3E-9624F70B2399}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSV", "CSV\CSV.csproj", "{5374926A-33D6-4A8F-8E3E-9624F70B2399}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSV.Test", "CSV.Test\CSV.Test.csproj", "{EC1726AA-54EC-4358-83F6-2EA90610ABD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSV.Test", "CSV.Test\CSV.Test.csproj", "{EC1726AA-54EC-4358-83F6-2EA90610ABD8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1529AEE0-EE59-4603-8773-23E73DEAF414}"
 	ProjectSection(SolutionItems) = preProject

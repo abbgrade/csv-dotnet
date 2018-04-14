@@ -1,7 +1,10 @@
 language: csharp
 solution: CSV.sln
-dotnet: 2.1.104
+matrix:
+  include:
+   - dotnet: 2.1.104
+     mono: none
+   - mono: latest
 script:
- - dotnet restore
- - dotnet build
- - dotnet test .\CSV.Test\CSV.Test.csproj
+ - dotnet restore -v n -f
+ - dotnet build -f netstandard2.0
