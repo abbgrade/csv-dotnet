@@ -1,6 +1,11 @@
 language: csharp
 solution: CSV.sln
 
+sudo: required  
+dist: trusty  
+env:  
+  - CLI_VERSION=latest
+
 include:
   - dotnet: 2.1.104
     mono: none
