@@ -1,17 +1,18 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using System.IO;
 using System.Text;
 
 namespace CSV.Test
 {
-    [TestClass]
+    [TestFixture]
     public class CsvReaderTest
     {
-        [TestMethod]
+        [Test]
         public void TestExternalFile()
         {
+            var workingDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).Replace(@"file:\", "");
             using (var reader = new CsvReader(
-                    @"..\..\TestData\Test.csv",
+                    workingDirectory + @"\..\..\TestData\Test.csv",
                     Encoding.Default,
                     '\n',
                     ',',
@@ -26,7 +27,7 @@ namespace CSV.Test
             }
         }
 
-        [TestMethod]
+        [Test]
         public void TestCsvReader()
         {
             string[][] refTable;
@@ -40,7 +41,7 @@ namespace CSV.Test
             }
         }
 
-        [TestMethod]
+        [Test]
         public void TestStreamReader()
         {
             string[][] refTable;
