@@ -1,4 +1,5 @@
 # csv-dotnet
+[![Build status](https://ci.appveyor.com/api/projects/status/awu41w2ree3vy8ro/branch/master?svg=true)](https://ci.appveyor.com/project/abbgrade/csv-dotnet/branch/master)
 [![Build Status](https://travis-ci.org/abbgrade/csv-dotnet.svg?branch=master)](https://travis-ci.org/abbgrade/csv-dotnet)
 
 A simple .NET library for CSV file access.
