@@ -1,2 +1,8 @@
 language: csharp
 solution: CSV.sln
+dotnet: 2.1.104
+mono: none
+
+script:
+ - dotnet restore -v n -f
+ - dotnet build -f netstandard2.0
