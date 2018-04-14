@@ -9,7 +9,7 @@ dotnet_csproj:
   file_version: '{version}'
   informational_version: '{version}'
 
-install:
+build_script:
   - ps: dotnet build
 
 test_script:
