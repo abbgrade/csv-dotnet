@@ -13,4 +13,4 @@ build_script:
   - ps: dotnet build
 
 test_script:
-  - ps: dotnet test .\CSV.Test\CSV.Test.csproj
+  - ps: dotnet test .\CSV.Test\CSV.Test.csproj -f net462
