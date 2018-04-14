@@ -1,3 +1,5 @@
+version: '1.0.{build}'
+
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
@@ -6,3 +8,9 @@ dotnet_csproj:
   assembly_version: '{version}'
   file_version: '{version}'
   informational_version: '{version}'
+
+install:
+  - ps: dotnet build
+
+test_script:
+  - ps: dotnet test .\CSV.Test\CSV.Test.csproj

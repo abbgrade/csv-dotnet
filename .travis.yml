@@ -4,3 +4,6 @@ solution: CSV.sln
 include:
   - dotnet: 2.1.104
     mono: none
+
+before_install:
+  - dotnet test .\CSV.Test\CSV.Test.csproj
