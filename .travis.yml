@@ -3,12 +3,9 @@ solution: CSV.sln
 install:
  - dotnet restore
 
-matrix:
-  include:
-    - dotnet: latest
-      mono: none
-    - mono: latest
+include:
+  - dotnet: 2.1.104
+    mono: none
 
 script:
- - dotnet restore
  - dotnet test
