@@ -2,17 +2,22 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net452;net462</TargetFrameworks>
+    <Title>CSV.NET</Title>
     <Authors>Steffen Kampmann</Authors>
     <PackageLicenseUrl>https://raw.githubusercontent.com/abbgrade/csv-dotnet/dotnet-core/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/abbgrade/csv-dotnet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/abbgrade/csv-dotnet.git</RepositoryUrl>
-    <AssemblyVersion>0.3.0.0</AssemblyVersion>
-    <FileVersion>0.3.0.0</FileVersion>
+    <AssemblyVersion>0.4.0.0</AssemblyVersion>
+    <FileVersion>0.4.0.0</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>CSV</PackageId>
+    <PackageId>CSV.NET</PackageId>
     <Description>A simple .NET Library for CSV-File access.</Description>
     <Company />
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
+    <PackageTags>CSV</PackageTags>
+    <NeutralLanguage />
+    <RepositoryType>GIT</RepositoryType>
+    <Copyright>2016 Steffen Kampmann</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
