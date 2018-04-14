@@ -1,17 +1,16 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Xunit;
 using System.IO;
 using System.Text;
 
 namespace CSV.Test
 {
-    [TestClass]
     public class CsvReaderTest
     {
-        [TestMethod]
+        [Fact]
         public void TestExternalFile()
         {
             using (var reader = new CsvReader(
-                    @"..\..\TestData\Test.csv",
+                    @"..\..\..\TestData\Test.csv",
                     Encoding.Default,
                     '\n',
                     ',',
@@ -22,11 +21,11 @@ namespace CSV.Test
                 foreach (var row in reader.ReadRows())
                     index++;
 
-                Assert.AreEqual(10698 - 1, index);
+                Assert.Equal(10698 - 1, index);
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void TestCsvReader()
         {
             string[][] refTable;
@@ -36,11 +35,11 @@ namespace CSV.Test
             // test csv file
             using (var reader = new CsvReader(tempFilePath, Encoding.UTF8, '\n', ',', 1))
             {
-                TestCsvReader(refTable, reader);
+                _TestCsvReader(refTable, reader);
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void TestStreamReader()
         {
             string[][] refTable;
@@ -50,13 +49,13 @@ namespace CSV.Test
             // test csv file
             using (var reader = new StreamReader(tempFilePath, Encoding.UTF8))
             {
-                TestStreamReader(refTable, reader, '\n', ',', 1);
+                _TestStreamReader(refTable, reader, '\n', ',', 1);
             }
         }
 
         #region Helper
 
-        private static void TestCsvReader(string[][] refTable, CsvReader reader)
+        private static void _TestCsvReader(string[][] refTable, CsvReader reader)
         {
             int rowIndex = 0;
             TestHeader(refTable, reader, rowIndex);
@@ -65,26 +64,26 @@ namespace CSV.Test
             {
                 rowIndex++;
 
-                Assert.AreEqual(refTable[rowIndex].Length, row.Length);
+                Assert.Equal(refTable[rowIndex].Length, row.Length);
 
                 for (int colIndex = 0; colIndex < refTable[rowIndex][colIndex].Length; colIndex++)
                 {
-                    Assert.AreEqual(refTable[rowIndex][colIndex], row[colIndex]);
+                    Assert.Equal(refTable[rowIndex][colIndex], row[colIndex]);
                 }
             }
         }
 
         private static void TestHeader(string[][] refTable, CsvReader reader, int rowIndex)
         {
-            Assert.AreEqual(refTable[rowIndex].Length, reader.Header.Length);
+            Assert.Equal(refTable[rowIndex].Length, reader.Header.Length);
 
             for (int colIndex = 0; colIndex < refTable[rowIndex][colIndex].Length; colIndex++)
             {
-                Assert.AreEqual(refTable[rowIndex][colIndex], reader.Header[colIndex]);
+                Assert.Equal(refTable[rowIndex][colIndex], reader.Header[colIndex]);
             }
         }
 
-        private static void TestStreamReader(string[][] refTable, StreamReader reader, char rowDelimeter, char columnDelimeter, int headerRowCount)
+        private static void _TestStreamReader(string[][] refTable, StreamReader reader, char rowDelimeter, char columnDelimeter, int headerRowCount)
         {
             int rowIndex = 0;
 
@@ -92,11 +91,11 @@ namespace CSV.Test
             {
                 rowIndex++;
 
-                Assert.AreEqual(refTable[rowIndex].Length, row.Length);
+                Assert.Equal(refTable[rowIndex].Length, row.Length);
 
                 for (int colIndex = 0; colIndex < refTable[rowIndex][colIndex].Length; colIndex++)
                 {
-                    Assert.AreEqual(refTable[rowIndex][colIndex], row[colIndex]);
+                    Assert.Equal(refTable[rowIndex][colIndex], row[colIndex]);
                 }
             }
         }
