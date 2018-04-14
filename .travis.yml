@@ -1,2 +1,14 @@
 language: csharp
 solution: CSV.sln
+install:
+ - dotnet restore
+
+matrix:
+  include:
+    - dotnet: latest
+      mono: none
+    - mono: latest
+
+script:
+ - dotnet restore
+ - dotnet test
